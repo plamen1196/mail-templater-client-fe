@@ -8,5 +8,5 @@ const API_URL = environment.apiUrl;
  export class EmailTemplaterApi {
 
     /* Confirmation */
-    public static readonly CONFIRM_EMAIL: string = `${API_URL}/`;
+    public static readonly CONFIRM_EMAIL: string = `${API_URL}/confirmation/confirm`;
 }

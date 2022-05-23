@@ -1,1 +1,30 @@
-<p>email-confirmation works!</p>
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="formGroup" name="formGroup" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>Recipient</mat-label>
+                <input matInput
+                       [formControlName]="'recipientemail'">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Token</mat-label>
+                <input matInput
+                       [formControlName]="'recipienttoken'">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Confirmation</mat-label>
+                <mat-select [formControlName]="'confirmation'">
+                    <mat-option [value]="1">{{ 'Received' }}</mat-option>
+                    <mat-option [value]="2">{{ 'Received and confirmed' }}</mat-option>
+                    <mat-option [value]="3">{{ 'Received and rejected' }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-raised-button
+                    color="primary"
+                    type="submit"
+                    [disabled]="isFormInvalid || submitted">
+                {{ submitted ? 'Submitted' : 'Submit confirmation' }}
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,18 @@
+@import '../../shared/_ui-tools.scss';
+@import '../../shared/_variables.scss';
+
+:host {
+    @include flex-column-centered();
+
+    mat-card {
+        min-width: 480px;
+
+        form {
+            @include flex-column-centered();
+
+            mat-form-field {
+                width: 100%;
+            }
+        }
+    }
+}
