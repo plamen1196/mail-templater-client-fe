@@ -31,10 +31,11 @@ export class EmailConfirmationComponent implements OnInit, OnDestroy {
     this.activatedRoute.queryParams
       .pipe(takeUntil(this.destroy$))
       .subscribe((params: Params) => {
+        const subject = params['subject'];
         const recipientEmail = params['recipientEmail'];
         const recipientToken = params['recipientToken'];
 
-        this.formGroup = this.generateForm(recipientEmail, recipientToken);
+        this.formGroup = this.generateForm(subject, recipientEmail, recipientToken);
       });
   }
 
@@ -60,8 +61,11 @@ export class EmailConfirmationComponent implements OnInit, OnDestroy {
            !this.formGroup?.controls['confirmation'].value;
   }
 
-  private generateForm(recipientEmail: string, recipientToken: string): FormGroup {
+  private generateForm(subject: string, recipientEmail: string, recipientToken: string): FormGroup {
     const form: FormGroup = this.formBuilder.group({});
+
+    const subjectFormGroup = new FormControl(subject);
+    subjectFormGroup.disable({ onlySelf: true });
 
     const recipientEmailFormGroup = new FormControl(recipientEmail, Validators.required);
     recipientEmailFormGroup.disable({ onlySelf: true });
@@ -71,6 +75,7 @@ export class EmailConfirmationComponent implements OnInit, OnDestroy {
 
     const confirmationFormGroup = new FormControl(null, Validators.required);
     
+    form.addControl('subject', subjectFormGroup);
     form.addControl('recipientemail', recipientEmailFormGroup);
     form.addControl('recipienttoken', recipientTokenFormGroup);
     form.addControl('confirmation', confirmationFormGroup);
