@@ -3,7 +3,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,13 +18,29 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { EmailConfirmationComponent } from './email-confirmation/email-confirmation.component';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LanguageComponent } from './language/language.component';
+
+// AoT requires an exported function for factories
+export const httpLoaderFactory = (http: HttpClient) => {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmailConfirmationComponent
+    EmailConfirmationComponent,
+    LanguageComponent
   ],
   imports: [
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpLoaderFactory,
+        deps: [HttpClient]
+      },
+      defaultLanguage: 'en'
+    }),
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,

@@ -1,0 +1,13 @@
+{
+    "HEADING": "Email confirmation",
+    "EMAIL_CONFIRMATION": {
+        "SUBJECT": "Subject",
+        "RECIPIENT": "Recipient",
+        "TOKEN": "Token",
+        "CONFIRMATION": "Confirmation",
+        "SUBMIT_BUTTON": {
+            "SUBMIT": "Submit",
+            "SUBMITTED": "Submitted"
+        }
+    }
+}

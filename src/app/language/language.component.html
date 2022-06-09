@@ -1,0 +1,9 @@
+<form>
+    <mat-form-field>
+        <mat-select (selectionChange)="onLanguageSelectionChange($event)" [value]="currentLanguage">
+            <mat-option *ngFor="let language of languages" [value]="language">
+                {{ language | uppercase }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>

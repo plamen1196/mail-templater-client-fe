@@ -2,22 +2,22 @@
     <mat-card-content>
         <form [formGroup]="formGroup" name="formGroup" (ngSubmit)="onSubmit()">
             <mat-form-field>
-                <mat-label>Subject</mat-label>
+                <mat-label>{{ 'EMAIL_CONFIRMATION.SUBJECT' | translate }}</mat-label>
                 <input matInput
                        [formControlName]="'subject'">
             </mat-form-field>
             <mat-form-field>
-                <mat-label>Recipient</mat-label>
+                <mat-label>{{ 'EMAIL_CONFIRMATION.RECIPIENT' | translate }}</mat-label>
                 <input matInput
                        [formControlName]="'recipientemail'">
             </mat-form-field>
             <mat-form-field>
-                <mat-label>Token</mat-label>
+                <mat-label>{{ 'EMAIL_CONFIRMATION.TOKEN' | translate }}</mat-label>
                 <input matInput
                        [formControlName]="'recipienttoken'">
             </mat-form-field>
             <mat-form-field>
-                <mat-label>Confirmation</mat-label>
+                <mat-label>{{ 'EMAIL_CONFIRMATION.CONFIRMATION' | translate }}</mat-label>
                 <mat-select [formControlName]="'confirmation'">
                     <mat-option [value]="1">{{ 'Received' }}</mat-option>
                     <mat-option [value]="2">{{ 'Received and confirmed' }}</mat-option>
@@ -28,7 +28,7 @@
                     color="primary"
                     type="submit"
                     [disabled]="isFormInvalid || submitted">
-                {{ submitted ? 'Submitted' : 'Submit confirmation' }}
+                {{ submitted ? 'EMAIL_CONFIRMATION.SUBMIT_BUTTON.SUBMITTED' : 'EMAIL_CONFIRMATION.SUBMIT_BUTTON.SUBMIT' | translate }}
             </button>
         </form>
     </mat-card-content>

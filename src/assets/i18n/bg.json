@@ -1,0 +1,13 @@
+{
+    "HEADING": "Потвърждение на електронно писмо",
+    "EMAIL_CONFIRMATION": {
+        "SUBJECT": "Заглавие",
+        "RECIPIENT": "Получател",
+        "TOKEN": "Токен",
+        "CONFIRMATION": "Потвърждение",
+        "SUBMIT_BUTTON": {
+            "SUBMIT": "Потвърди",
+            "SUBMITTED": "Потвърдено"
+        }
+    }
+}

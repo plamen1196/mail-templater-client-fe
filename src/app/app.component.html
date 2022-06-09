@@ -1,7 +1,11 @@
 <div class="wrapper mat-app-background">
-  <h1 class="heading mat-h1">
-    Email confirmation
-  </h1>
+  <div class="header">
+    <h1 class="heading mat-h1">
+      {{ 'HEADING' | translate }}
+    </h1>
+  
+    <app-language></app-language>
+  </div>
 
   <app-email-confirmation></app-email-confirmation>
 </div>
