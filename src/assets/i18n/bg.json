@@ -8,6 +8,24 @@
         "SUBMIT_BUTTON": {
             "SUBMIT": "Потвърди",
             "SUBMITTED": "Потвърдено"
+        },
+        "SEND_CUSTOM_REPLY": "Изпрати персонализиран отговор",
+        "CUSTOM_REPLY_BUTTON": "Отговор",
+        "RECEIVED": "Получено",
+        "RECEIVED_AND_CONFIRMED": "Получено и потвърдено",
+        "RECEIVED_AND_REJECTED": "Получено и отказано"
+    },
+    "SEND_REPLY_EMAIL": {
+      "TITLE": "Създаване на отговор",
+      "BUTTONS": {
+        "CANCEL_BUTTON": "Затвори",
+        "REPLY_BUTTON": "Отговори"
+      },
+      "CREATE_REPLY": {
+        "MESSAGE_FIELD": {
+          "LABEL": "Текст за отговор",
+          "HINT": "Съдържанието на персонализирания отговор"
         }
+      }
     }
 }

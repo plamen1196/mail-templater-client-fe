@@ -8,6 +8,8 @@ import { Subject, takeUntil } from 'rxjs';
 
 import { EmailConfirmationService } from 'src/services/email-confirmation.service';
 import { ConfirmationUtil } from 'src/util/confirmation-util';
+import { MatDialog } from "@angular/material/dialog";
+import { SendReplyEmailComponent } from "../send-reply-email/send-reply-email.component";
 
 @Component({
   selector: 'app-email-confirmation',
@@ -22,10 +24,12 @@ export class EmailConfirmationComponent implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject<void>();
 
   constructor(
+    private dialog: MatDialog,
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private emailConfirmationService: EmailConfirmationService,
-    private snackbar: MatSnackBar) { }
+    private snackbar: MatSnackBar) {
+  }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams
@@ -50,31 +54,35 @@ export class EmailConfirmationComponent implements OnInit, OnDestroy {
     const recipientConfirmation = this.formGroup.controls['confirmation'].value;
 
     this.emailConfirmationService.confirmEmail(recipientEmail, recipientToken, recipientConfirmation).subscribe(
-      (response: HttpResponse<any>) => { this.handleSucces(response, recipientConfirmation); },
-      (response: HttpErrorResponse) => { this.handleFailure(response); },
+      (response: HttpResponse<any>) => {
+        this.handleSucces(response, recipientConfirmation);
+      },
+      (response: HttpErrorResponse) => {
+        this.handleFailure(response);
+      },
     );
   }
 
   get isFormInvalid(): boolean {
     return !this.formGroup?.controls['recipientemail'].value ||
-           !this.formGroup?.controls['recipienttoken'].value ||
-           !this.formGroup?.controls['confirmation'].value;
+      !this.formGroup?.controls['recipienttoken'].value ||
+      !this.formGroup?.controls['confirmation'].value;
   }
 
   private generateForm(subject: string, recipientEmail: string, recipientToken: string): FormGroup {
     const form: FormGroup = this.formBuilder.group({});
 
     const subjectFormGroup = new FormControl(subject);
-    subjectFormGroup.disable({ onlySelf: true });
+    subjectFormGroup.disable({onlySelf: true});
 
     const recipientEmailFormGroup = new FormControl(recipientEmail, Validators.required);
-    recipientEmailFormGroup.disable({ onlySelf: true });
+    recipientEmailFormGroup.disable({onlySelf: true});
 
     const recipientTokenFormGroup = new FormControl(recipientToken, Validators.required);
-    recipientTokenFormGroup.disable({ onlySelf: true });
+    recipientTokenFormGroup.disable({onlySelf: true});
 
     const confirmationFormGroup = new FormControl(null, Validators.required);
-    
+
     form.addControl('subject', subjectFormGroup);
     form.addControl('recipientemail', recipientEmailFormGroup);
     form.addControl('recipienttoken', recipientTokenFormGroup);
@@ -100,5 +108,24 @@ export class EmailConfirmationComponent implements OnInit, OnDestroy {
     const message = 'ERROR when confirming email! ' + response.error.message;
 
     this.snackbar.open(message, 'Close');
+  }
+
+  onOpenReplyWindow(): void {
+    const dialogRef = this.dialog.open(SendReplyEmailComponent, {
+      data: {},
+      disableClose: true,
+      width: '700px',
+      minHeight: 500,
+      maxHeight: 800,
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(({ success, cancelClicked, message }) => {
+      if (!cancelClicked) {
+        this.snackbar.open(message, undefined, {
+          duration: 3000
+        });
+      }
+    });
   }
 }

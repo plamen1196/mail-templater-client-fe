@@ -1,0 +1,19 @@
+{
+    "HEADING": "Correo electrónico de confirmación",
+    "EMAIL_CONFIRMATION": {
+        "SUBJECT": "Sujeto",
+        "RECIPIENT": "Recipiente",
+        "TOKEN": "Token",
+        "CONFIRMATION": "Confirmación",
+        "SUBMIT_BUTTON": {
+            "SUBMIT": "Entregar",
+            "SUBMITTED": "Presentado"
+        },
+        "CUSTOM_REPLY_BUTTON": {
+          "SEND_CUSTOM_REPLY": "Enviar mensaje de respuesta personalizado"
+        },
+        "RECEIVED": "Recibió",
+        "RECEIVED_AND_CONFIRMED": "Recibido y confirmado",
+        "RECEIVED_AND_REJECTED": "Recibido y rechazado"
+    }
+}

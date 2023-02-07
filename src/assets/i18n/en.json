@@ -8,6 +8,12 @@
         "SUBMIT_BUTTON": {
             "SUBMIT": "Submit",
             "SUBMITTED": "Submitted"
-        }
+        },
+        "CUSTOM_REPLY_BUTTON": {
+          "SEND_CUSTOM_REPLY": "Send Custom Reply Message"
+        },
+        "RECEIVED": "Received",
+        "RECEIVED_AND_CONFIRMED": "Received and confirmed",
+        "RECEIVED_AND_REJECTED": "Received and rejected"
     }
 }

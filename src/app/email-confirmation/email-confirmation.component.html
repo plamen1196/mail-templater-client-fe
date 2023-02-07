@@ -19,17 +19,33 @@
             <mat-form-field>
                 <mat-label>{{ 'EMAIL_CONFIRMATION.CONFIRMATION' | translate }}</mat-label>
                 <mat-select [formControlName]="'confirmation'">
-                    <mat-option [value]="1">{{ 'Received' }}</mat-option>
-                    <mat-option [value]="2">{{ 'Received and confirmed' }}</mat-option>
-                    <mat-option [value]="3">{{ 'Received and rejected' }}</mat-option>
+                    <mat-option [value]="1">{{ 'EMAIL_CONFIRMATION.RECEIVED' | translate }}</mat-option>
+                    <mat-option [value]="2">{{ 'EMAIL_CONFIRMATION.RECEIVED_AND_CONFIRMED' | translate }}</mat-option>
+                    <mat-option [value]="3">{{ 'EMAIL_CONFIRMATION.RECEIVED_AND_REJECTED' | translate }}</mat-option>
                 </mat-select>
             </mat-form-field>
             <button mat-raised-button
-                    color="primary"
+                    color="accent"
                     type="submit"
                     [disabled]="isFormInvalid || submitted">
                 {{ 'EMAIL_CONFIRMATION.SUBMIT_BUTTON.SUBMIT' | translate }}
             </button>
         </form>
+
     </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="formGroup" name="formGroup">
+      <mat-hint align="start">
+        <p>{{ 'EMAIL_CONFIRMATION.SEND_CUSTOM_REPLY' | translate }}</p>
+      </mat-hint>
+      <button mat-raised-button
+              color="primary"
+              (click)="onOpenReplyWindow()"
+              [disabled]="submitted">
+        {{ 'EMAIL_CONFIRMATION.CUSTOM_REPLY_BUTTON' | translate }}
+      </button>
+    </form>
+  </mat-card-content>
 </mat-card>

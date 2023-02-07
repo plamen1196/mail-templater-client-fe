@@ -1,0 +1,19 @@
+{
+    "HEADING": "Email Bestätigung",
+    "EMAIL_CONFIRMATION": {
+        "SUBJECT": "Gegenstand",
+        "RECIPIENT": "Empfänger",
+        "TOKEN": "Zeichen",
+        "CONFIRMATION": "Bestätigung",
+        "SUBMIT_BUTTON": {
+            "SUBMIT": "Einreichen",
+            "SUBMITTED": "Eingereicht"
+        },
+        "CUSTOM_REPLY_BUTTON": {
+          "SEND_CUSTOM_REPLY": "Benutzerdefinierte Antwortnachricht senden"
+        },
+        "RECEIVED": "Empfangen",
+        "RECEIVED_AND_CONFIRMED": "Erhalten und bestätigt",
+        "RECEIVED_AND_REJECTED": "Erhalten und abgelehnt"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "HEADING": "Confirmation de l'émail",
+    "EMAIL_CONFIRMATION": {
+        "SUBJECT": "Sujet",
+        "RECIPIENT": "Destinataire",
+        "TOKEN": "Jeton",
+        "CONFIRMATION": "Confirmation",
+        "SUBMIT_BUTTON": {
+            "SUBMIT": "Nous faire parvenir",
+            "SUBMITTED": "Soumis"
+        },
+        "CUSTOM_REPLY_BUTTON": {
+          "SEND_CUSTOM_REPLY": "Envoyer un message de réponse personnalisé"
+        },
+        "RECEIVED": "A reçu",
+        "RECEIVED_AND_CONFIRMED": "Reçu et confirmé",
+        "RECEIVED_AND_REJECTED": "Reçu et rejeté"
+    }
+}

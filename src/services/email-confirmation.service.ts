@@ -1,12 +1,14 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {BehaviorSubject, Observable, tap} from 'rxjs';
 import { EmailTemplaterApi } from 'src/api/email-templater-api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmailConfirmationService {
+
+  readonly replyMessageMaxLength$ = new BehaviorSubject<number>(0);
 
   constructor(private httpClient: HttpClient) { }
 
@@ -20,5 +22,11 @@ export class EmailConfirmationService {
       params = params.append('recipientConfirmation', recipientConfirmation);
 
       return this.httpClient.patch<any>(EmailTemplaterApi.CONFIRM_EMAIL, null, { params });
+  }
+
+  getReplyMessageMaxLength(): Observable<number> {
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+    return this.httpClient.get<number>(EmailTemplaterApi.REPLY_MESSAGE_MAX_LENGTH, { headers })
+      .pipe(tap(value => this.replyMessageMaxLength$.next(value)));
   }
 }

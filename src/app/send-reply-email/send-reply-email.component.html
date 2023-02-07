@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>
+    {{ 'SEND_REPLY_EMAIL.TITLE' | translate }}
+</h2>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="formGroup" name="formGroup">
+        <mat-form-field class="message-form-field">
+            <mat-label>{{ 'SEND_REPLY_EMAIL.CREATE_REPLY.MESSAGE_FIELD.LABEL' | translate }}</mat-label>
+            <mat-hint>
+                {{ 'SEND_REPLY_EMAIL.CREATE_REPLY.MESSAGE_FIELD.HINT' | translate }}
+                {{ (replyMessage.value?.length || 0) }} / {{ replyMessageMaxLength | async }}
+            </mat-hint>
+            <!-- <mat-hint> Example: Hello %(name), how are you?</mat-hint> -->
+            <textarea #replyMessage
+                      matInput
+                      required
+                      [maxLength]="replyMessageMaxLength | async"
+                      matTextareaAutosize
+                      matAutosizeMaxRows="30"
+                      [formControlName]="'message'"
+                      class="message-textarea">
+            </textarea>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="actions">
+    <button mat-raised-button
+            color="accent"
+            (click)="onCancel()">
+        {{ 'SEND_REPLY_EMAIL.BUTTONS.CANCEL_BUTTON' | translate }}
+    </button>
+    <button mat-raised-button
+            color="primary"
+            [disabled]="formGroup.invalid"
+            (click)="onSendReply()">
+        {{ 'SEND_REPLY_EMAIL.BUTTONS.REPLY_BUTTON' | translate }}
+    </button>
+</mat-dialog-actions>

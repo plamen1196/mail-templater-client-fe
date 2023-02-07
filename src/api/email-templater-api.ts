@@ -9,4 +9,5 @@ const API_URL = environment.apiUrl;
 
     /* Confirmation */
     public static readonly CONFIRM_EMAIL: string = `${API_URL}/confirmation/confirm`;
+    public static readonly REPLY_MESSAGE_MAX_LENGTH: string = `${API_URL}/confirmation/reply-message-max-length`;
 }

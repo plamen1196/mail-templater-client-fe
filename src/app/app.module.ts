@@ -20,6 +20,9 @@ import { AppComponent } from './app.component';
 import { EmailConfirmationComponent } from './email-confirmation/email-confirmation.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageComponent } from './language/language.component';
+import { SendReplyEmailComponent } from "./send-reply-email/send-reply-email.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatDividerModule} from "@angular/material/divider";
 
 // AoT requires an exported function for factories
 export const httpLoaderFactory = (http: HttpClient) => {
@@ -30,6 +33,7 @@ export const httpLoaderFactory = (http: HttpClient) => {
   declarations: [
     AppComponent,
     EmailConfirmationComponent,
+    SendReplyEmailComponent,
     LanguageComponent
   ],
   imports: [
@@ -53,7 +57,9 @@ export const httpLoaderFactory = (http: HttpClient) => {
     MatCardModule,
     MatSelectModule,
     MatOptionModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatDividerModule
   ],
   bootstrap: [AppComponent]
 })

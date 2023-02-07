@@ -1,0 +1,19 @@
+{
+    "HEADING": "Conferma via email",
+    "EMAIL_CONFIRMATION": {
+        "SUBJECT": "Argomento",
+        "RECIPIENT": "Destinatario",
+        "TOKEN": "Gettone",
+        "CONFIRMATION": "Conferma",
+        "SUBMIT_BUTTON": {
+            "SUBMIT": "Invia",
+            "SUBMITTED": "Inviato"
+        },
+        "CUSTOM_REPLY_BUTTON": {
+        "SEND_CUSTOM_REPLY": "Invia messaggio di risposta personalizzato"
+        },
+        "RECEIVED": "Ricevuto",
+        "RECEIVED_AND_CONFIRMED": "Ricevuto e confermato",
+        "RECEIVED_AND_REJECTED": "Ricevuto e rifiutato"
+    }
+}
